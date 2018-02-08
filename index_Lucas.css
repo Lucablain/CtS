@@ -1,0 +1,91 @@
+h1{ 
+font-family:serif;
+/*font-family:comic sans ms;*/
+text-align:center;
+color: #293540;
+background-image:;
+background-repeat:repeat-x;
+padding:5px;
+background-color : #FF530D;
+border-bottom:3px #293540 inset;
+}
+
+h2{ 
+font-family:serif;
+/*font-family:comic sans ms;*/
+text-align:center;
+color: #293540;
+background-image:;
+background-repeat:repeat-x;
+padding:5px;
+background-color : white;
+border-bottom:3px #293540 inset;
+}
+
+p{
+text-align:center;
+font-size:25;
+margin-top:140px;
+border:1px black solid;
+}
+ 
+#menu {
+margin : 0;
+padding : 0;
+background-color:silver;
+/*width:100px;
+float:left;*/
+}
+
+div>a{
+/*margin-left:81px;
+margin-top:100px;
+height:300px;
+border:none;
+color: #293540;
+width:500px;
+font-size:50;
+border:10px #FF530D solid;
+border-radius: 50px;*/
+border:4px #FF530D solid;
+border-radius: 5px;
+padding:25px;
+font-size:25;
+margin:16%;
+text-decoration:none;
+color:black;
+}
+
+ul {
+ padding:auto;
+ margin:auto;
+ list-style-type:none;
+ }
+li {
+ margin-left:2px;
+ float:left; /*pour IE*/
+ }
+ul li a {
+ display:block;
+ float:left;   
+ width:auto;
+ background-color:#FF530D;
+ color:white;
+ text-decoration:none;
+ text-align:center;
+ padding:5px;
+ border:2px solid;
+ border-radius:10px;
+ /*pour avoir un effet "outset" avec IE :*/
+ border-color:#DCDCDC #696969 #696969 #DCDCDC;
+ }
+ul li a:hover {
+ background-color:#D3D3D3;
+ border-color:#696969 #DCDCDC #DCDCDC #696969;
+ color:black;
+ }
+ 
+ a{
+ text-decoration:none;
+ color: #293540;
+ }

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Connexion</title>
+	<link href="/CtS/CSS/index_Lucas.css" rel="stylesheet" />
+</head>
+<body>
+	<h1><a href="/CtS/menuDAO.html">Chop'ton Stage</a></h1>
+	<h2>Connexion</h1>
+	<form method="get" action="servlet/Authentif">
+	   <p>
+	       <label for="login">Votre Login :</label>
+	       <input type="text" name="login" id="login" />
+	       
+	       <br />
+	       <label for="mdp">Votre Mot de Passe :</label>
+	       <input type="password" name="mdp" id="mdp" />
+	     
+	       <br /> 
+	       <input type="checkbox" id="checkEnt" name="table" value="entreprise">
+   		   <label for="checkEnt">Entreprise</label>
+	       <input type="checkbox" id="checkEc" name="table" value="ecole">
+  		   <label for="checkEc">Ecole</label>
+  		   <input type="checkbox" id="checkEtu" name="table" value="etudiant">
+  		   <label for="checkEtu">Etudiant</label>
+  		  
+  		   <br />
+	       <input type="submit" value="Envoyer" />
+	   </p>
+	</form>
+</body>
+</html>
