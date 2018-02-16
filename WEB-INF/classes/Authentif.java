@@ -4,8 +4,8 @@ import javax.servlet.http.*;
 import javax.servlet.annotation.WebServlet;
 import java.sql.*;
 
-@WebServlet("/servlet/Authent")
-public class Authent extends HttpServlet
+@WebServlet("/servlet/Authentif")
+public class Authentif extends HttpServlet
 {
 	public void service( HttpServletRequest req, HttpServletResponse res )
 	throws ServletException, IOException
@@ -22,30 +22,32 @@ public class Authent extends HttpServlet
 			Class.forName("org.postgresql.Driver");
 			
 			// connexion à la base
-			String url = "jdbc:postgresql://psqlserv/n3p1";
-			String nom = "ablainl";
-			String mdp = "moi";
+			String url = "jdbc:postgresql:postgres";
+			String nom = "root";
+			String mdp = "root";
 			con = DriverManager.getConnection(url,nom,mdp);
 
 			// execution de la requete
 			Statement stmt = con.createStatement();
 			
-			String log = req.getParameter("login");
-			String motdp = req.getParameter("mdp");
-			
+			String login = req.getParameter("login");
+			String mdpasse = req.getParameter("mdp");
+			String table = req.getParameter("table");
 			HttpSession session = req.getSession( true );
 			
 			try{
-				String queryT2 = "SELECT * from personne where login = \'"+ log +"\' and mdp = \'"+ motdp +"\'";
+				String queryT2 = "SELECT * from "+table+" where login = \'"+ login +"\' and mdp = \'"+ mdpasse +"\';";
 				ResultSet rs = stmt.executeQuery(queryT2);
 				if(rs.next()){
 					session.setAttribute( "login", rs.getString("login"));
+					session.setAttribute( "table", table);
+					//System.out.println(table);
 					//out.println("<p>Vous êtes connecté avec le compte : " + rs.getString("nom") + " " +rs.getString("prenom") + "</p>");
-					res.sendRedirect("http://localhost:8080/CtS/menu.html");
+					res.sendRedirect("http://localhost:8080/vide/menuDAO.html");
 				}
 				else{
 					//out.println("<p>Authentification incorrecte</p>");
-					res.sendRedirect("http://localhost:8080/CtS/login.html");
+					res.sendRedirect("http://localhost:8080/vide/loginDAO.jsp");
 				}
 			}catch(Exception e){
 				e.printStackTrace();
@@ -54,7 +56,7 @@ public class Authent extends HttpServlet
 			
 		}
 		catch(Exception e){
-			System.out.println("error 404");
+			e.printStackTrace();
 		}
 		finally{
 			try{con.close();}catch(Exception e2){}
